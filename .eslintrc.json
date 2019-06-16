@@ -4,7 +4,11 @@
         "commonjs": true,
         "es6": true
     },
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "mocha/es6",
+        "mocha/test"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"

@@ -4,8 +4,9 @@
   "description": "A utility for writing tests with temporary directories",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint . || exit 0",
-    "test": "mocha-parallel-tests --timeout 10000 --slow 1000 test/*.js"
+    "lint": "./node_modules/.bin/eslint .",
+    "test-parallel": "mocha-parallel-tests --timeout 10000 --slow 1000 test/*.js",
+    "test": "mocha --timeout 10000 --slow 1000 test/*.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,13 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-mocha": "0.0.0",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-mocha-only": "0.0.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.1.4",
     "mocha-parallel-tests": "^2.2.0"
   }

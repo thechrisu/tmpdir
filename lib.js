@@ -27,7 +27,7 @@ let _singleton = null;
  *    - delete
  */
 class TempDir {
-  constructor(baseDir, noCleanup) {
+  constructor (baseDir, noCleanup) {
     if (baseDir == null || baseDir === false) {
       if (fs.existsSync(os.tmpdir())) {
         this.baseDir = os.tmpdir();
@@ -50,7 +50,7 @@ class TempDir {
     }
   }
 
-  deletePreviousRuns() {
+  deletePreviousRuns () {
     let allRunDirNames = fs.readdirSync(this.getBaseDir());
     const reg = new RegExp(isoRegexStr, 'g');
     allRunDirNames = allRunDirNames.filter(dirName => dirName.match(reg));
@@ -63,16 +63,16 @@ class TempDir {
     Promise.all(delPromises);
   }
 
-  getBaseDir() {
+  getBaseDir () {
     return this.baseDir;
   }
 
   /* eslint-disable class-methods-use-this */
-  isBaseDir(candidate) {
+  isBaseDir (candidate) {
     return candidate.match(new RegExp(isoRegexStr, 'g'));
   }
 
-  getSingleton() {
+  getSingleton () {
     if (!_singleton) {
       _singleton = this;
     }
@@ -82,11 +82,11 @@ class TempDir {
   // seems better than to execute functions by default.
   // also maybe an antipattern
   /* eslint-disable class-methods-use-this */
-  build(baseDir = null, noCleanup = false) {
+  build (baseDir = null, noCleanup = false) {
     return new TempDir(baseDir, noCleanup);
   }
 
-  provide() {
+  provide () {
     // TODO(cuontheinternet): Mode etc.
     // I heard the cool kids on the block use promises these days
     return new Promise((resolve, reject) => {

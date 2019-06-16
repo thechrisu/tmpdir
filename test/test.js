@@ -4,13 +4,13 @@ const tempDir = require('../lib.js');
 
 describe('TempDir works', () => {
   it('creates the temp directory', () => {
-    tempDir.provide().then((tmpDir) => {
+    tempDir.provide().then(tmpDir => {
       assert.ok(fs.lstatSync(tmpDir).isDirectory());
     });
   });
   it('changes the temp dir on subsequent calls', () => {
-    tempDir.provide().then((tmpDir1) => {
-      tempDir.provide().then((tmpDir2) => {
+    tempDir.provide().then(tmpDir1 => {
+      tempDir.provide().then(tmpDir2 => {
         assert.notDeepStrictEqual(tmpDir1, tmpDir2);
       });
     });

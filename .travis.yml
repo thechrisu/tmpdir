@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+  - "stable"
+cache: npm
+install:
+  - npm ci
+script:
+  - npm test
+  - npm run lint
